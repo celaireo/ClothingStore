@@ -1,3 +1,67 @@
+﻿# Clothing Store
+
+An ASP.NET Core MVC web application for managing a clothing store’s product catalog.  
+Implements CRUD operations, search/filtering, and custom Tag Helpers, all using an in-memory repository (no database required).
+
+## Features
+
+- **ASP.NET Core MVC (.NET 8)**
+- **In-memory product repository** (no database)
+- **CRUD**: Create, Read, Update, Delete products
+- **Search/filter**: by Name, Category, and Size (enum)
+- **Custom Tag Helpers**:
+  - `<price value="decimal">` — formats as currency
+  - `<badge text="string" variant="bootstrap-color">` — renders a Bootstrap badge
+- **Bootstrap (Bootswatch Cosmo theme)** for responsive UI
+- **Bootstrap modal** for delete confirmation
+- **TempData** feedback messages (e.g., "Product added")
+- **Strongly-typed Razor views** with validation
+
+## Product Model
+
+public class Product { 
+	public int Id { get; set; } 
+	public string Name { get; set; } 
+	public string Category { get; set; } 
+	public decimal Price { get; set; } 
+	public DateTime ReleaseDate { get; set; } 
+	public bool InStock { get; set; } 
+	public Size Size { get; set; } 
+	}
+	public enum Size { 
+	XS, S, M, L, XL, XXL 
+	}
+	
+
+
+## Project Structure
+
+ClothingStore/ 
+│ 
+├── Controllers/ 
+│   └── ProductsController.cs 
+├── Models/ 
+│   └── Product.cs 
+├── Data/ 
+│   ├── IProductRepository.cs 
+│   └── InMemoryProductRepository.cs 
+├── TagHelpers/ 
+│   ├── PriceTagHelper.cs 
+│   └── BadgeTagHelper.cs 
+├── Views/ 
+│   ├── Shared/ 
+│   │   └── _Layout.cshtml 
+│   ├── Products/ 
+│   │   ├── Index.cshtml 
+│   │   ├── Create.cshtml 
+│   │   ├── Edit.cshtml 
+│   │   ├── Details.cshtml 
+│   │   └── Delete.cshtml 
+│   └── _ViewImports.cshtml 
+├── wwwroot/ 
+│   └── (static assets) 
+├── Program.cs └── ClothingStore.csproj
+
 
 ## Getting Started
 
@@ -23,11 +87,6 @@
 - Delete uses a Bootstrap modal for confirmation.
 - Success messages are shown after each operation.
 
-### Custom Tag Helpers
-
-- `<price value="decimal">` � displays price as currency.
-- `<badge text="string" variant="color">` � displays a Bootstrap badge.
-
 ### Styling
 
 - Uses [Bootswatch Cosmo](https://bootswatch.com/cosmo/) theme via CDN in `_Layout.cshtml`.
@@ -36,7 +95,4 @@
 
 This project is for educational/demo purposes.
 
----
 
-**Need help?**  
-If you encounter issues, ensure you have the correct .NET SDK and that the project is set as the startup project in Visual Studio.
