@@ -14,7 +14,7 @@
         <input type="text" name="category" value="@ViewBag.Category" class="form-control" placeholder="Category" />
     </div>
     <div class="col-md-3">
-        <select name="size" class="form-select">
+        <select name="size" class="form-select">    
             <option value="">All Sizes</option>
             @foreach (var s in Enum.GetValues(typeof(Size)))
             {
