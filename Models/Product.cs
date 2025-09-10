@@ -10,10 +10,10 @@ namespace ClothingStore.Models
         public int Id { get; set; }
 
         [Required, StringLength(100)]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [Required, StringLength(50)]
-        public string Category { get; set; }
+        public string Category { get; set; } = string.Empty;
 
         [Range(0.01, 10000)]
         public decimal Price { get; set; }

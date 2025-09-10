@@ -20,7 +20,7 @@ namespace ClothingStore.Data
             };
         }
 
-        public IEnumerable<Product> GetAll(string name = null, string category = null, Size? size = null)
+        public IEnumerable<Product> GetAll(string? name = null, string? category = null, Size? size = null)
         {
             var query = _products.AsQueryable();
             if (!string.IsNullOrWhiteSpace(name))
@@ -32,7 +32,7 @@ namespace ClothingStore.Data
             return query.ToList();
         }
 
-        public Product GetById(int id) => _products.FirstOrDefault(p => p.Id == id);
+        public Product? GetById(int id) => _products.FirstOrDefault(p => p.Id == id);
 
         public void Add(Product product)
         {

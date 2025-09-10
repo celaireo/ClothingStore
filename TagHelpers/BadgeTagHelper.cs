@@ -5,7 +5,7 @@ namespace ClothingStore.TagHelpers
     [HtmlTargetElement("badge")]
     public class BadgeTagHelper : TagHelper
     {
-        public string Text { get; set; }
+        public string Text { get; set; } = string.Empty;
         public string Variant { get; set; } = "primary";
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
